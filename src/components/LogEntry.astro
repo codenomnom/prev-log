@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+
+type Props = {
+  log: CollectionEntry<"logs">;
+  class?: string;
+  single?: boolean;
+} & { [K: string]: any };
+
+const { log, class: className, single, ...rest } = Astro.props;
+
+const Element = single ? "div" : "li";
+---
+
+<Element class:list={["log", className]} class="log" {...rest}>
+  <div class="version_wrapper">
+    <div class="version_info">
+      {
+        // FIXME: reuse this and don't repeat
+        single ? (
+          <>
+            <div class="version_number">
+              {(log.data.tags || ["misc"]).map((t) => `# ${t}`).join(", ")}
+            </div>
+            <FormattedDate class="date" date={log.data.date} />
+          </>
+        ) : (
+          <a href={`/logs/${log.id}`}>
+            <div class="version_number">
+              {(log.data.tags || ["misc"]).map((t) => `# ${t}`).join(", ")}
+            </div>
+            <FormattedDate class="date" date={log.data.date} />
+          </a>
+        )
+      }
+    </div>
+  </div>
+  <div class="content">
+    {
+      single ? (
+        <h2>{log.data.title}</h2>
+      ) : (
+        <h2>
+          <a href={`/logs/${log.id}`} class="heading-link">{log.data.title}</a>
+        </h2>
+      )
+    }
+
+    <slot />
+  </div>
+</Element>

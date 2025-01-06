@@ -75,6 +75,10 @@ a:visited {
 		color: colors.color(orange, 500);
 	}
 }
+a.heading-link {
+  color: colors.$white;
+  text-decoration: none;
+}
 
 hr {
 	margin: 1em 0;
@@ -104,13 +108,12 @@ nav {
 	}
 	#site_title a {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		gap: 10px;
 		color: colors.color(gray, 950);
 		font-size: 16px;
 		font-weight: 700;
-		letter-spacing: 2px;
-		line-height: 1;
+		line-height: 18px;
 		text-decoration: none;
 		text-transform: uppercase;
 		@media (prefers-color-scheme: dark) {
@@ -153,6 +156,17 @@ nav {
 			}
 		}
 	}
+
+	blockquote {
+    border-left: 2px solid colors.color(orange, 500);
+    margin-inline-start: 2rem;
+    padding-left: 1rem;
+  }
+
+  code {
+    background-color: colors.color(gray, 800);
+    padding: 4px 8px;
+  }
 }
 
 // .page_title {
@@ -176,12 +190,12 @@ nav {
 	}
 }
 
-.posts {
+.logs {
 	list-style: none;
 	padding: 0;
 }
 
-.post {
+.log {
 	display: flex;
 	width: 100%;
 	@media (max-width: $tablet) {

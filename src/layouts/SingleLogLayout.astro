@@ -1,0 +1,46 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import LogEntry from "../components/LogEntry.astro";
+
+type Props = {
+  log: CollectionEntry<"logs">;
+};
+
+const { log, ...rest } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={log.data.title}
+      description={log.data.description}
+      image={log.data.image}
+    />
+  </head><body>
+    <div class="glow"></div>
+    <Header />
+
+    <LogEntry class="single" log={log} transition:persist transition:name="log" single={true} {...rest}>
+      <slot />
+    </LogEntry>
+
+    <!-- <div class="log single" transition:persist transition:name="log">
+			<div class="version_wrapper">
+				<div class="version_info">
+					<div class="version_number">{log.data.versionNumber}</div>
+					<FormattedDate class="date" date={log.data.date} />
+				</div>
+			</div>
+			<div class="content">
+				<slot />
+			</div>
+		</div> -->
+
+    <Footer />
+  </body>
+</html>

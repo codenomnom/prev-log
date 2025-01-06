@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/SingleLogLayout.astro";
+
+export async function getStaticPaths() {
+  const logs = await getCollection("logs");
+
+  return logs.map((log) => ({
+    params: { slug: log.id },
+    props: { log },
+  }));
+}
+
+const props = Astro.props;
+const { log } = Astro.props;
+
+const { Content } = await render(log);
+---
+
+<Layout {...props}>
+  <Content />
+</Layout>

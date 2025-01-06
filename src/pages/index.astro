@@ -1,37 +1,33 @@
 ---
-import { getCollection, render } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
-import Layout from '../layouts/IndexLayout.astro';
+import { getCollection, render } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import Layout from "../layouts/IndexLayout.astro";
+import LogEntry from "../components/LogEntry.astro";
 
-const posts = await getCollection('releases');
-posts.sort((a, b) => +b.data.date - +a.data.date);
+const logs = (await getCollection("logs"))
+  .filter((l) => !l.id.startsWith("_"))
+  .sort((a, b) => a.id.localeCompare(b.id))
+  .reverse();
+// logs.sort((a, b) => +b.data.date - +a.data.date);
 ---
 
 <Layout>
-	<main>
-		<h1 class="page_title">prev·log</h1>
-		<p class="page_subtitle">a personal log of going <i>prev</i> instead of <i>Next</i></p>
-		<hr />
-		<ul class="posts" transition:name="post">
-			{
-				posts.map((post) => (
-					<li class="post">
-						<div class="version_wrapper">
-							<div class="version_info">
-								<a href={`/releases/${post.id}`}>
-									<div class="version_number">{post.data.versionNumber}</div>
-									<FormattedDate class="date" date={post.data.date} />
-								</a>
-							</div>
-						</div>
-						<div class="content">
-							{render(post).then(({ Content }) => (
-								<Content />
-							))}
-						</div>
-					</li>
-				))
-			}
-		</ul>
-	</main>
+  <main>
+    <h1 class="page_title">prev·log</h1>
+    <p class="page_subtitle">
+      my log of headbangs, when <i>Next</i> resulted in <i>prev</i>
+    </p>
+    <hr />
+    <ul class="logs" transition:name="log">
+      {
+        logs.map((log) => (
+          <LogEntry {log}>
+            {render(log).then(({ Content }) => (
+              <Content />
+            ))}
+          </LogEntry>
+        ))
+      }
+    </ul>
+  </main>
 </Layout>
