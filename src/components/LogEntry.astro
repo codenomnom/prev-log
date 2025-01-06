@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "./FormattedDate.astro";
+import { SiteBase } from "../consts";
 
 type Props = {
   log: CollectionEntry<"logs">;
@@ -26,7 +27,7 @@ const Element = single ? "div" : "li";
             <FormattedDate class="date" date={log.data.date} />
           </>
         ) : (
-          <a href={`/logs/${log.id}`}>
+          <a href={`${SiteBase}/logs/${log.id}`}>
             <div class="version_number">
               {(log.data.tags || ["misc"]).map((t) => `# ${t}`).join(", ")}
             </div>
@@ -42,7 +43,7 @@ const Element = single ? "div" : "li";
         <h2>{log.data.title}</h2>
       ) : (
         <h2>
-          <a href={`/logs/${log.id}`} class="heading-link">{log.data.title}</a>
+          <a href={`${SiteBase}/logs/${log.id}`} class="heading-link">{log.data.title}</a>
         </h2>
       )
     }
