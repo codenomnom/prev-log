@@ -226,6 +226,7 @@ nav {
   .version_info {
     position: sticky;
     top: 1em;
+    padding-bottom: 3rem;
 
     @media (max-width: $tablet) {
       position: relative;
