@@ -11,10 +11,13 @@ When you're using the [Catch-all Segments](https://nextjs.org/docs/pages/buildin
 
 And it kinda makes sense if you really think about it:
 
-| Route    | Example | URL params |
-| -------- | ------- | ---------- |
-| `pages/shop/[...slug].js` | `/shop/a` | `{ slug: ['a'] }` |
-| `pages/shop/[...slug].js` | `/shop/a/b/c` | `{ slug: ['a', 'b', 'c'] }` |
+**Route**: `pages/shop/[...slug].js`
+
+**URL**: `/shop/a`\
+**Params**: `{ slug: ['a'] }`
+
+**URL**: `/shop/a/b/c`\
+**Params**: `{ slug: ['a', 'b', 'c'] }`
 
 ---
 
