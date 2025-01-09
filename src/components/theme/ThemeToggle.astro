@@ -1,0 +1,33 @@
+---
+import MoonIcon from "./MoonIcon.astro";
+import SunIcon from "./SunIcon.astro";
+---
+
+<button id="themeToggle">
+  <SunIcon class="sun" />
+  <MoonIcon class="moon" />
+</button>
+
+<style>
+  #themeToggle {
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+  .sun,
+  .moon {
+    color: var(--color-nav-links);
+  }
+  .sun {
+    display: none;
+  }
+
+  html[data-theme='dark'] {
+    .sun {
+      display: block;
+    }
+    .moon {
+      display: none;
+    }
+  }
+</style>

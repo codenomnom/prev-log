@@ -1,20 +1,21 @@
 ---
 import "../styles/global.scss";
-import { SiteTitle } from "../consts";
 import Logo from "./Logo.astro";
+import { SiteBase, SiteTitle } from "../consts";
+import ThemeToggle from "./theme/ThemeToggle.astro";
 ---
 
 <header>
 	<nav>
 		<h2 id="site_title">
-			<a href="/">
+			<a href={SiteBase}>
 				<Logo />
 				{SiteTitle}
 			</a>
 		</h2>
-		<!-- <div class="links">
-			<a href="mailto:contactus@yourwebsite.com">Contact</a>
-		</div> -->
+		<div class="links">
+      <ThemeToggle />
+		</div>
 	</nav>
 </header>
 

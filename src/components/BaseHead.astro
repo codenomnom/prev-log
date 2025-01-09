@@ -1,14 +1,59 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import SEO, { type Props as SEOProps } from './SEO.astro';
-import { SiteTitle, SiteDescription } from '../consts';
+import { ClientRouter } from "astro:transitions";
+import SEO, { type Props as SEOProps } from "./SEO.astro";
+import { SiteTitle, SiteDescription } from "../consts";
 
 export type Props = Partial<SEOProps>;
-const { title = SiteTitle, name = SiteTitle, description = SiteDescription, ...seo } = Astro.props;
+const {
+  title = SiteTitle,
+  name = SiteTitle,
+  description = SiteDescription,
+  ...seo
+} = Astro.props;
 ---
 
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 <SEO {title} {description} {name} {...seo} />
 
 <ClientRouter />
+
+<script is:inline>
+  const DARK = "dark";
+  const LIGHT = "light";
+  const THEME_STORAGE_KEY = "theme";
+
+  function getTheme() {
+    if (typeof localStorage !== "undefined") {
+      const value = localStorage.getItem(THEME_STORAGE_KEY);
+      if (value) {
+        return value;
+      }
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return DARK;
+    }
+    return LIGHT;
+  }
+
+  function setupTheme() {
+    setTheme(getTheme());
+
+    const handleToggleClick = () =>
+      setTheme(getTheme() === LIGHT ? DARK : LIGHT);
+
+    document
+      .getElementById("themeToggle")
+      ?.addEventListener("click", handleToggleClick);
+  }
+
+  function setTheme(theme) {
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
+    document.documentElement.dataset.theme = theme;
+  }
+
+  document.addEventListener("astro:after-swap", setupTheme); // needed for transitions
+  document.addEventListener("DOMContentLoaded", setupTheme);
+
+  setupTheme(); // initial setup, works immediately as it's in the head
+</script>
