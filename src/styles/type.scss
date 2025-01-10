@@ -1,4 +1,5 @@
 @use './colors.scss' as colors;
+@use './breakpoints.scss' as breakpoints;
 
 $baseFont: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $codeFont: 'Source Code Pro', monospace;
@@ -24,6 +25,10 @@ h5 {
 	margin: 1em 0 0.5em 0;
 	color: var(--color-header-links);
 	font-weight: 700;
+
+  @media (max-width: breakpoints.$tablet) {
+    overflow-wrap: anywhere;
+  }
 }
 
 h1 {

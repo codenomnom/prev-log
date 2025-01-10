@@ -1,12 +1,9 @@
 @use 'sass:color';
+@use './breakpoints.scss' as breakpoints;
 @use './colors.scss' as colors;
 @use './type.scss' as type;
 
 $container: 1040px;
-$tablet: 768px;
-$screen-950: 950px;
-$screen-650: 650px;
-$mobile: 420px;
 
 :root {
   --transition: background-color .3s ease, color .3s ease, border-color .3s ease;
@@ -55,6 +52,10 @@ body {
   max-width: 100%;
   background-color: var(--background-color);
   transition: var(--transition);
+
+  @media (max-width: breakpoints.$tablet) {
+    font-size: 16px;
+  }
 }
 
 ::selection {
@@ -164,7 +165,7 @@ nav {
 
 // .page_title {
 // 	margin: 1.5em 0;
-// 	@media (max-width: $tablet) {
+// 	@media (max-width: breakpoints.$tablet) {
 // 		margin: 0.5em 0;
 // 	}
 // }
@@ -172,7 +173,7 @@ nav {
 .page_title {
   margin: 1.5em 0 0.5rem 0;
 
-  @media (max-width: $tablet) {
+  @media (max-width: breakpoints.$tablet) {
     margin-top: 0.5em;
   }
 }
@@ -180,7 +181,7 @@ nav {
 .page_subtitle {
   margin-bottom: 1.5em;
 
-  @media (max-width: $tablet) {
+  @media (max-width: breakpoints.$tablet) {
     margin-bottom: 0.5em;
   }
 }
@@ -198,7 +199,7 @@ nav {
   display: flex;
   width: 100%;
 
-  @media (max-width: $tablet) {
+  @media (max-width: breakpoints.$tablet) {
     flex-flow: column;
   }
 
@@ -218,9 +219,9 @@ nav {
     flex-basis: 140px;
   }
 
-  @media (max-width: $tablet) {
+  @media (max-width: breakpoints.$tablet) {
     flex-basis: 0;
-    margin-top: 2em;
+    margin-top: 1.5em;
   }
 
   .version_info {
@@ -228,7 +229,7 @@ nav {
     top: 1em;
     padding-bottom: 3rem;
 
-    @media (max-width: $tablet) {
+    @media (max-width: breakpoints.$tablet) {
       position: relative;
       top: 0;
     }
@@ -267,7 +268,7 @@ nav {
   font-family: type.$codeFont;
   font-size: type.$fontSizeSmall;
 
-  @media (max-width: $tablet) {
+  @media (max-width: breakpoints.$tablet) {
     display: inline;
     margin-left: 1em;
   }
@@ -282,9 +283,9 @@ nav {
   padding: 4em 0;
   border-bottom: 1px solid colors.color(gray, 100);
 
-  @media (max-width: $tablet) {
+  @media (max-width: breakpoints.$tablet) {
     margin: 1em 0;
-    padding: 0 0 2em 0;
+    padding: 0 0 1em 0;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -318,7 +319,7 @@ aside {
   font-style: italic;
   text-wrap: wrap;
 
-  @media (max-width: $screen-950) {
+  @media (max-width: breakpoints.$screen-950) {
     padding: 0 3rem;
   }
 }
@@ -355,7 +356,7 @@ footer {
   }
 }
 
-@media (max-width: $tablet) {
+@media (max-width: breakpoints.$tablet) {
   aside {
     order: 1;
     width: 100%;
@@ -369,6 +370,13 @@ footer {
 
     p {
       order: 2;
+    }
+  }
+
+  .content {
+    blockquote {
+      margin-inline-start: 1rem;
+      padding-left: 0.5rem;
     }
   }
 }
