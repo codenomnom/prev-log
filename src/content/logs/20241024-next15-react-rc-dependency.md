@@ -4,13 +4,13 @@ date: '2024-10-24'
 tags: ['react19-rc']
 description: 'Next dependency on React RC breaks the internet'
 image:
-  src: '../../assets/starlog-placeholder-2.jpg'
-  alt: 'The full Astro logo.'
+  src: './images/tyler-milligan-dSIcpkddKrM-unsplash.jpg'
+  alt: 'Dependency'
 ---
 
 On 21st of October, [Next.js 15](https://nextjs.org/blog/next-15) was officially released, yay! 🎉
 
-![Next.js 15 released (photo credit to https://nextjs.org/blog/next-15-rc)](./images/next15.png)
+![Dependency: https://unsplash.com/photos/shallow-focus-photography-of-rock-formation-dSIcpkddKrM](./images/tyler-milligan-dSIcpkddKrM-unsplash.jpg)
 
 Among the release notes there's this [note](https://nextjs.org/blog/next-15#react-19):
 

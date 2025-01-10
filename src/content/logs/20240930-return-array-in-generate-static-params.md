@@ -3,9 +3,11 @@ title: 'Return an Array in generateStaticParams'
 date: '2024-09-30'
 tags: ['catch-all-segments']
 image:
-  src: '../../assets/starlog-placeholder-2.jpg'
-  alt: 'The full Astro logo.'
+  src: './images/yoko-correia-nishimiya-34_cEpcBjpE-unsplash.jpg'
+  alt: 'Collection'
 ---
+
+![Collection: https://unsplash.com/photos/selective-focus-photo-of-black-and-brown-ball-peen-hammers-PtgLGdMzi-Y](./images/yoko-correia-nishimiya-34_cEpcBjpE-unsplash.jpg)
 
 When you're using the [Catch-all Segments](https://nextjs.org/docs/pages/building-your-application/routing/dynamic-routes#catch-all-segments) feature, you [must return an array of params](https://github.com/vercel/next.js/discussions/48878) in `generateStaticParams`, even though it should always contain a single entry.
 

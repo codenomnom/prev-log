@@ -222,7 +222,8 @@ nav {
   margin: 4.5em 0 0 0;
 
   @media (max-width: $container) {
-    flex-basis: 140px;
+    // TODO: figure out if this should be used - it causes issues with longer tags on smaller screens
+    // flex-basis: 140px;
   }
 
   @media (max-width: breakpoints.$tablet) {

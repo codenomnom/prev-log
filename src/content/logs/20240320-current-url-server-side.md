@@ -3,8 +3,8 @@ title: 'Get the current URL server side'
 date: '2024-03-20'
 tags: ['current-url']
 image:
-  src: '../../assets/starlog-placeholder-1.jpg'
-  alt: 'The full Astro logo.'
+  src: './images/adam-sherez-PtgLGdMzi-Y-unsplash.jpg'
+  alt: 'Tools'
 ---
 
 ![Tools: https://unsplash.com/photos/selective-focus-photo-of-black-and-brown-ball-peen-hammers-PtgLGdMzi-Y](./images/adam-sherez-PtgLGdMzi-Y-unsplash.jpg)

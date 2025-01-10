@@ -3,8 +3,8 @@ title: 'Middleware not working because of instrumentation'
 date: '2024-08-16'
 tags: ['middleware']
 image:
-  src: '../../assets/starlog-placeholder-1.jpg'
-  alt: 'The full Astro logo.'
+  src: './images/tahamie-farooqui-WFo6cCRHLx8-unsplash.jpg'
+  alt: 'Instrumentation'
 ---
 
 ![Instrumentation: https://unsplash.com/photos/a-close-up-of-a-metal-object-on-a-table-WFo6cCRHLx8](./images/tahamie-farooqui-WFo6cCRHLx8-unsplash.jpg)
