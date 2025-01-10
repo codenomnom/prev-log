@@ -10,12 +10,14 @@ const {
   description = SiteDescription,
   ...seo
 } = Astro.props;
+
+const pageTitle = title !== SiteTitle ? `${SiteTitle} - ${title}` : title;
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-<title>{title}</title>
-<SEO {title} {description} {name} {...seo} />
+<title>{pageTitle}</title>
+<SEO title={pageTitle} {description} {name} {...seo} />
 
 <ClientRouter />
 
