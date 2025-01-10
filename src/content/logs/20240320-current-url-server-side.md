@@ -33,4 +33,7 @@ export default async function Page() {
 }
 ```
 
-This one made me a bit sad honestly, as it shouldn't be **that** hard.
+**Unfortunately** this comes at a huge price - every time you use `headers`, it breaks caching, because it's a [dynamic function](https://nextjs.org/docs/13/app/building-your-application/caching#dynamic-functions)! As of now, I haven't seen an easy way around it.
+
+
+Honestly, this one made me a bit sad. It's okay for my use case, but it's just awful...
