@@ -7,7 +7,7 @@ image:
   alt: 'The full Astro logo.'
 ---
 
-![Instrumentation](./images/tahamie-farooqui-WFo6cCRHLx8-unsplash.jpg)
+![Instrumentation: https://unsplash.com/photos/a-close-up-of-a-metal-object-on-a-table-WFo6cCRHLx8](./images/tahamie-farooqui-WFo6cCRHLx8-unsplash.jpg)
 
 This one was completely my fault, but it was deeply burried. [Middleware](https://nextjs.org/docs/13/app/building-your-application/routing/middleware) was not working. Regardless of what I put inside the file, nothing happens. And I needed it because I needed the server to know what's the current page 😂
 
