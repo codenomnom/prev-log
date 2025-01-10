@@ -7,6 +7,9 @@ import { SiteBase } from './src/consts';
 export default defineConfig({
   site: 'https://codenomnom.github.io',
   base: SiteBase,
+  prefetch: {
+    defaultStrategy: 'viewport',
+  },
   markdown: {
     rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]],
   },
