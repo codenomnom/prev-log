@@ -11,6 +11,9 @@ $container: 1040px;
   --color-gray-50: #f6f6f9;
   --color-gray-100: #e6e7ef;
   --color-gray-200: #c7c9db;
+  --color-gray-300: #a8abc7;
+	--color-gray-400: #898eb4;
+  --color-gray-500: #6a71a0;
   --color-gray-600: #545b83;
   --color-gray-800: #2c3145;
   --color-gray-900: #181b26;
@@ -239,6 +242,7 @@ nav {
     @media (max-width: breakpoints.$tablet) {
       position: relative;
       top: 0;
+      padding-bottom: 2.5rem;
     }
   }
 
@@ -258,7 +262,7 @@ nav {
   display: inline-block;
   font-family: type.$codeFont;
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   padding: 4px 12px;
   color: colors.$white;
   background: linear-gradient(25deg,
@@ -266,22 +270,24 @@ nav {
       colors.color(purple, 700),
       color.mix(colors.color(purple, 500), colors.color(orange, 500)),
       colors.color(orange, 500));
-  border-radius: 8px;
+  // background-color: var(--color-code);
+  border-radius: 4px;
 }
 
 .date {
   clear: both;
-  color: colors.color(gray, 800);
+  // color: colors.color(gray, 800);
+  color: var(--color-text);
   font-family: type.$codeFont;
   font-size: type.$fontSizeSmall;
 
   @media (max-width: breakpoints.$tablet) {
-    display: inline;
+    display: inline !important;
     margin-left: 1em;
   }
 
   @media (prefers-color-scheme: dark) {
-    color: colors.color(gray, 200);
+    // color: colors.color(gray, 200);
   }
 }
 
@@ -292,7 +298,7 @@ nav {
 
   @media (max-width: breakpoints.$tablet) {
     margin: 1em 0;
-    padding: 0 0 1em 0;
+    padding: 0 0 2em 0;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -307,8 +313,8 @@ nav {
     width: 100%;
     max-width: 100%;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 0 10px -4px var(--color-gray-800);
+    border-radius: 5px;
+    box-shadow: 0 0 14px var(--color-code);
   }
 
   table {
