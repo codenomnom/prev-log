@@ -11,7 +11,7 @@ const {
   ...seo
 } = Astro.props;
 
-const pageTitle = title !== SiteTitle ? `${SiteTitle} - ${title}` : title;
+const pageTitle = title !== SiteTitle ? `${SiteTitle} - ${title}` : `${SiteTitle} - ${SiteDescription}`;
 ---
 
 <meta charset="utf-8" />
