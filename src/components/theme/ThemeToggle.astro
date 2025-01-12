@@ -13,16 +13,24 @@ import SunIcon from "./SunIcon.astro";
     border: 0;
     background: none;
     cursor: pointer;
+
+    &:hover {
+      .sun,
+      .moon {
+        color: var(--color-links-hover);
+      }
+    }
   }
   .sun,
   .moon {
     color: var(--color-nav-links);
+    transition: var(--transition);
   }
   .sun {
     display: none;
   }
 
-  html[data-theme='dark'] {
+  html[data-theme="dark"] {
     .sun {
       display: block;
     }
