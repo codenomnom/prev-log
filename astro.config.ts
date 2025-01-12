@@ -1,4 +1,5 @@
 // @ts-check
+import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
 import rehypeExternalLinks from 'rehype-external-links';
 import { SiteBase } from './src/consts';
@@ -7,10 +8,14 @@ import { SiteBase } from './src/consts';
 export default defineConfig({
   site: 'https://codenomnom.github.io',
   base: SiteBase,
+
   prefetch: {
     defaultStrategy: 'viewport',
   },
+
   markdown: {
     rehypePlugins: [[rehypeExternalLinks, { target: '_blank' }]],
   },
+
+  integrations: [sitemap()],
 });
