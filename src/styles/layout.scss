@@ -115,6 +115,7 @@ nav {
     display: flex;
     align-items: flex-start;
     gap: 10px;
+    margin: 0;
     color: var(--color-header-links);
     font-size: 16px;
     font-weight: 700;
@@ -227,7 +228,8 @@ nav {
   flex-basis: 260px;
   flex-grow: 0;
   flex-shrink: 0;
-  margin: 4.5em 0 0 0;
+  // margin: 4.5em 0 0 0;
+  margin-top: 88px;
 
   @media (max-width: $container) {
     // TODO: figure out if this should be used - it causes issues with longer tags on smaller screens
@@ -242,12 +244,12 @@ nav {
   .version_info {
     position: sticky;
     top: 1em;
-    padding-bottom: 3rem;
+    // padding-bottom: 3rem;
 
     @media (max-width: breakpoints.$tablet) {
       position: relative;
       top: 0;
-      padding-bottom: 2.5rem;
+      // padding-bottom: 2.5rem;
     }
   }
 
@@ -268,14 +270,12 @@ nav {
   font-family: type.$codeFont;
   line-height: 1;
   margin-bottom: 4px;
-  padding: 4px 12px;
+  padding: 4px 8px;
   color: colors.$white;
-  background: linear-gradient(25deg,
-      colors.color(purple, 800),
-      colors.color(purple, 700),
-      color.mix(colors.color(purple, 500), colors.color(orange, 500)),
-      colors.color(orange, 500));
-  // background-color: var(--color-code);
+
+  background-color: #aae5da;
+  color: var(--color-gray-800);
+  font-weight: 700;
   border-radius: 4px;
 }
 
