@@ -13,7 +13,7 @@
     "astro": "^5.1.5",
     "cssnano": "^7.0.6",
     "rehype-external-links": "^3.0.0",
-    "sass": "^1.83.1",
+    "sass": "^1.83.4",
     "sharp": "^0.33.5"
   }
 }
