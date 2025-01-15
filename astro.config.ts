@@ -6,7 +6,7 @@ import { SiteBase } from './src/consts';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://codenomnom.github.io',
+  site: 'https://prev-log.com',
   base: SiteBase,
 
   prefetch: {
