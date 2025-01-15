@@ -160,7 +160,7 @@ nav {
   }
 
   blockquote {
-    border-left: 2px solid colors.color(orange, 500);
+    border-left: 2px solid var(--color-links);
     margin-inline-start: 2rem;
     padding-left: 1rem;
   }
@@ -360,6 +360,14 @@ footer {
 
     a {
       margin-left: 0.8em;
+    }
+  }
+}
+
+@media (max-width: breakpoints.$screen-950) {
+  .content {
+    blockquote {
+      margin-inline-start: 1rem;
     }
   }
 }
