@@ -1,7 +1,7 @@
 ---
 title: 'Revalidation Encoding'
 date: '2024-09-23'
-tags: ['revalidate-encoding']
+tags: ['utf-8']
 image:
   src: './images/bart-encode.jpg'
   alt: 'The full Astro logo.'
