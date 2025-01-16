@@ -75,7 +75,7 @@ a:visited {
   text-decoration-color: #77d1c2;
 
   &:hover {
-    color: var(--color-links-hover);
+    color: var(--color-links-hover) !important;
     text-decoration-thickness: 4px;
   }
 }
