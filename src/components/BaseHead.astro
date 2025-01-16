@@ -11,12 +11,15 @@ const {
   ...seo
 } = Astro.props;
 
-const pageTitle = title !== SiteTitle ? `${SiteTitle} - ${title}` : `${SiteTitle} - ${SiteDescription}`;
+const pageTitle =
+  title !== SiteTitle
+    ? `${SiteTitle} - ${title}`
+    : `${SiteTitle} - ${SiteDescription}`;
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-<link rel="icon" type="image/svg+xml" href="/prev-log/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href={`${SiteBase}/favicon.svg`} />
 <meta name="generator" content={Astro.generator} />
 <link rel="sitemap" href={`${SiteBase}/sitemap-index.xml`} />
 
