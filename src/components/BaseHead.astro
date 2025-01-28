@@ -1,8 +1,9 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import SEO, { type Props as SEOProps } from "./SEO.astro";
-import { SiteTitle, SiteDescription, SiteBase } from "../consts";
+import { SiteTitle, SiteDescription, SiteBase, TwitterHandle } from "../consts";
 import OGImage from "../images/og.jpg";
+import OGXImage from "../images/ogx.jpg";
 
 export type Props = Partial<SEOProps>;
 const {
@@ -13,6 +14,15 @@ const {
 } = Astro.props;
 
 seo.image = seo.image || { src: OGImage, alt: SiteTitle };
+if (!seo.twitter) {
+  seo.twitter = {
+    card: "summary",
+    handle: TwitterHandle,
+  };
+}
+if (!seo.twitter.image) {
+  seo.twitter.image = { src: OGXImage, alt: SiteTitle };
+}
 
 const pageTitle =
   title !== SiteTitle
