@@ -131,6 +131,7 @@ nav {
 }
 
 .content {
+  overflow: auto; // needed for code blocks
 
   ol,
   ul {
