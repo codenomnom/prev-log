@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.4.1",
-    "astro": "^5.9.3",
+    "astro": "^5.10.1",
     "cssnano": "^7.0.7",
     "rehype-external-links": "^3.0.0",
     "sass": "^1.89.2",
