@@ -11,7 +11,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.15.3",
-    "cssnano": "^7.1.1",
+    "cssnano": "^7.1.2",
     "rehype-external-links": "^3.0.0",
     "sass": "^1.93.2",
     "sharp": "^0.34.4"
