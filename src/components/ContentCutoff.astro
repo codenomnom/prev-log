@@ -1,0 +1,27 @@
+---
+import type { AstroGlobal } from "astro";
+
+// TODO: extract
+async function renderSlot(slots: AstroGlobal["slots"], slotName = "default") {
+  const content = (await slots.render(slotName)) as string | undefined;
+  const contentTrimmed = content ? content.trim() : undefined;
+
+  return contentTrimmed ?? undefined;
+}
+
+type Props = {
+  doCutoff: boolean;
+  moreHref?: string;
+};
+
+const content = await renderSlot(Astro.slots, "default");
+const doCutoff = Astro.props.doCutoff ?? false;
+const moreHref = Astro.props.moreHref;
+
+const excerptSplit = content?.split(`<!-- cutoff -->`) ?? [];
+const excerptContent = excerptSplit[0];
+const hasExcerpt = excerptSplit.length > 1;
+---
+
+<Fragment set:html={doCutoff && hasExcerpt ? excerptContent : content} />
+{doCutoff && hasExcerpt && moreHref && <a href={moreHref}>read full log</a>}

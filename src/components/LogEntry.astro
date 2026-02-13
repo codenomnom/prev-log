@@ -1,7 +1,9 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import FormattedDate from "./FormattedDate.astro";
+import { render, type CollectionEntry } from "astro:content";
 import { SiteBase } from "../consts";
+import FormattedDate from "./FormattedDate.astro";
+import ContentCutoff from "./ContentCutoff.astro";
+import OptionalLink from "./OptionalLink.astro";
 
 type Props = {
   log: CollectionEntry<"logs">;
@@ -10,6 +12,8 @@ type Props = {
 } & { [K: string]: any };
 
 const { log, class: className, single, ...rest } = Astro.props;
+const { Content } = await render(log);
+const logLink = `${SiteBase}/logs/${log.id}`;
 
 const Element = single ? "div" : "li";
 ---
@@ -17,37 +21,23 @@ const Element = single ? "div" : "li";
 <Element class:list={["log", className]} class="log" {...rest}>
   <div class="version_wrapper">
     <div class="version_info">
-      {
-        // FIXME: reuse this and don't repeat
-        single ? (
-          <>
-            <div class="version_number">
-              {(log.data.tags || ["misc"]).map((t) => `# ${t}`).join(", ")}
-            </div>
-            <FormattedDate class="date" date={log.data.date} />
-          </>
-        ) : (
-          <a href={`${SiteBase}/logs/${log.id}`}>
-            <div class="version_number">
-              {(log.data.tags || ["misc"]).map((t) => `# ${t}`).join(", ")}
-            </div>
-            <FormattedDate class="date" date={log.data.date} />
-          </a>
-        )
-      }
+      <OptionalLink href={single ? null : logLink}>
+        <div class="version_number">
+          {(log.data.tags || ["misc"]).map((t) => `# ${t}`).join(", ")}
+        </div>
+        <FormattedDate class="date" date={log.data.date} />
+      </OptionalLink>
     </div>
   </div>
   <div class="content">
-    {
-      single ? (
-        <h2>{log.data.title}</h2>
-      ) : (
-        <h2>
-          <a href={`${SiteBase}/logs/${log.id}`} class="heading-link">{log.data.title}</a>
-        </h2>
-      )
-    }
+    <h2>
+      <OptionalLink href={single ? null : logLink} class="heading-link">
+        {log.data.title}
+      </OptionalLink>
+    </h2>
 
-    <slot />
+    <ContentCutoff doCutoff={!single} moreHref={logLink}>
+      <Content />
+    </ContentCutoff>
   </div>
 </Element>

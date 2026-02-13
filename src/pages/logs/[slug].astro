@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 import Layout from "../../layouts/SingleLogLayout.astro";
 
 export async function getStaticPaths() {
@@ -12,11 +12,6 @@ export async function getStaticPaths() {
 }
 
 const props = Astro.props;
-const { log } = Astro.props;
-
-const { Content } = await render(log);
 ---
 
-<Layout {...props}>
-  <Content />
-</Layout>
+<Layout {...props} />

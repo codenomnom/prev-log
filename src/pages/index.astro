@@ -1,6 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
-import FormattedDate from "../components/FormattedDate.astro";
+import { getCollection } from "astro:content";
 import Layout from "../layouts/IndexLayout.astro";
 import LogEntry from "../components/LogEntry.astro";
 
@@ -15,19 +14,12 @@ const logs = (await getCollection("logs"))
   <main>
     <h1 class="page_title">prev·log</h1>
     <p class="page_subtitle">
-      my log of headbangs, when <i>Next</i> resulted in <i>prev</i> <sup><a href="#about">&dagger;</a></sup>
+      my log of headbangs, when <i>Next</i> resulted in <i>prev</i>
+      <sup><a href="#about">&dagger;</a></sup>
     </p>
     <hr />
     <ul class="logs" transition:name="log">
-      {
-        logs.map((log) => (
-          <LogEntry {log}>
-            {render(log).then(({ Content }) => (
-              <Content />
-            ))}
-          </LogEntry>
-        ))
-      }
+      {logs.map((log) => <LogEntry {log} />)}
     </ul>
   </main>
 </Layout>
