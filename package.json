@@ -10,11 +10,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
-<<<<<<< HEAD
-    "astro": "^5.18.2",
-=======
     "astro": "^6.4.2",
->>>>>>> fe925e3 (chore(deps): ran astro v6 migration)
     "cssnano": "^8.0.1",
     "rehype-external-links": "^3.0.0",
     "sass": "^1.100.0",
