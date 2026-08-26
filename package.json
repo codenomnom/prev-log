@@ -14,6 +14,6 @@
     "cssnano": "^8.0.7",
     "rehype-external-links": "^3.0.0",
     "sass": "^1.103.1",
-    "sharp": "^0.35.3"
+    "sharp": "^0.35.4"
   }
 }
