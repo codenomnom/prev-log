@@ -1,7 +1,7 @@
 {
   "name": "prev-log",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -9,11 +9,16 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.1",
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^6.4.8",
+    "astro": "^7.3.5",
     "cssnano": "^9.1.1",
     "rehype-external-links": "^3.0.0",
     "sass": "^1.105.0",
     "sharp": "^0.35.5"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.5.0": true,
+    "esbuild@0.28.2": true
   }
 }
